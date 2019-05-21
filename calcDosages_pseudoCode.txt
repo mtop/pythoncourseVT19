@@ -1,0 +1,26 @@
+Arguments:
+1. Name of input file: Tab separated file with genotype probabilities where the first row contains the sample IDs, the following rows have three columns per sample for genotype AA, AB and BB.
+
+2. Optional name of output file
+
+open the input file
+open the output file
+
+Read the first line of the input file and print first "SNP" followed by the sample names, tab separated to the output file. This will be the header of the output file
+
+In a for loop from second row of file to end
+
+    Read the next line
+    Split the line to a list, by tab
+    Store the first element as SNP
+
+    For each value "i" in 2,(2+3*1),(2+3*2),(2+3*3),(2+3*4)... until end of list 
+
+        Calculate dosage as P(AB)+2*P(AA), which will be list_value[i] + 2*list_value[i+1]
+        Store in new list
+
+    Make a tab separated string of the list
+    Print the dosage string to the output file
+
+close the input file
+close the output file
