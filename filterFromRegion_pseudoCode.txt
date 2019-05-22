@@ -1,0 +1,36 @@
+This script will read a file with i.e. SNP information and filter out the SNPs within a given region of a given chromosome. Either only the SNP name or the SNP name together with annotation.
+
+Input arguments:
+- input file: file with SNP information
+- chromosome number
+- start position of the region
+- end position of the region
+- flag to decide if only SNP name or with annotation
+- optional name of output file (has some default)
+
+open the input file
+open the output file
+
+read the first line of the input file
+if SNP including annotation should be given
+   print the first line to the output file
+
+split the line by whitespace
+create a string with each column name followed by the column number separated by commas
+print this string and ask for input:
+      which is the SNP ID column
+      which is the chromosome column
+      which is the SNP position column
+
+create variables with the column numbers given above (can have defaults if no answer is given)
+
+loop through the rest of the file
+     if args chromosome equals the value in the chromosome column AND args start position is less than the value in the position column AND args end position is greater than the value in the position column
+     	if SNP including annotation should be given
+	   print the whole line
+	else
+	   split the line
+	   print only the value in the SNP ID column
+
+close the input file
+close the output file

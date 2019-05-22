@@ -1,0 +1,31 @@
+This script will take a list of ID and an input file and filter out the rows with one of the IDs in a given column
+
+input arguments:
+- list of IDs i.e SNP rs numbers
+- input file: file to search for the IDs
+- ID column name in input file with default = SNP
+- output file: optional file for writing the search result
+
+
+open the input file
+open the ID file
+open the output file
+
+
+read the ID file and store the IDs in a list
+
+read the header (the first line) of the input file
+print the header to the output file
+
+split the header by tab (or maybe whitespace) and store in list
+
+loop through the header list and find the column number with name equal to the given ID column name. Save the column number in a variable
+
+loop through the lines in the rest of the inputfile
+     if the value in the ID column is in the ID list
+     	print the line to output file
+
+
+close input file
+close output file
+close ID file
