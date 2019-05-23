@@ -1,26 +1,26 @@
+This script will read a VCF file, find the genotype probabilities and use them to calculate dosages
 Arguments:
-1. Name of input file: Tab separated file with genotype probabilities where the first row contains the sample IDs, the following rows have three columns per sample for genotype AA, AB and BB.
-
+1. Name of input vcf file
 2. Optional name of output file
 
-open the input file
+open the vcf file
 open the output file
 
-Read the first line of the input file and print first "SNP" followed by the sample names, tab separated to the output file. This will be the header of the output file
+Read the first lines of the vcf file one by one, until read reaches "#CHROM". Print that line as header
 
-In a for loop from second row of file to end
+In a for loop next line of file to end
 
     Read the next line
-    Split the line to a list, by tab
-    Store the first element as SNP
+    Split the line to a list (list_a), by whitespace
+    Save the first 9 elements in a list (list_b)
 
-    For each value "i" in 2,(2+3*1),(2+3*2),(2+3*3),(2+3*4)... until end of list 
+    For each value "i" in from index 9 to end of list_a 
+    	split the string which is on format GT:GP to extract the three GP (genotype probabilities)
+        Calculate dosage as P(AB)+2*P(AA)
+        Append to list_b
 
-        Calculate dosage as P(AB)+2*P(AA), which will be list_value[i] + 2*list_value[i+1]
-        Store in new list
-
-    Make a tab separated string of the list
-    Print the dosage string to the output file
+    Make a tab separated string of list_b
+    Print the string to the output file
 
 close the input file
 close the output file
